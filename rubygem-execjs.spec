@@ -4,7 +4,7 @@
 #
 Name     : rubygem-execjs
 Version  : 2.5.2
-Release  : 4
+Release  : 5
 URL      : https://rubygems.org/downloads/execjs-2.5.2.gem
 Source0  : https://rubygems.org/downloads/execjs-2.5.2.gem
 Summary  : No detailed summary available
@@ -30,17 +30,17 @@ gem spec %{SOURCE0} -l --ruby > rubygem-execjs.gemspec
 gem build rubygem-execjs.gemspec
 
 %install
-gem_dir=$(ruby -e'puts Gem.default_dir')
+%global gem_dir $(ruby -e'puts Gem.default_dir')
 gem install -V \
 --local \
 --force \
---install-dir .${gem_dir} \
+--install-dir .%{gem_dir} \
 --bindir .%{_bindir} \
 execjs-2.5.2.gem
 
-mkdir -p %{buildroot}${gem_dir}
-cp -pa .${gem_dir}/* \
-%{buildroot}${gem_dir}
+mkdir -p %{buildroot}%{gem_dir}
+cp -pa .%{gem_dir}/* \
+%{buildroot}%{gem_dir}
 
 if [ -d .%{_bindir} ]; then
 mkdir -p %{buildroot}%{_bindir}
@@ -48,127 +48,26 @@ cp -pa .%{_bindir}/* \
 %{buildroot}%{_bindir}/
 fi
 
+
 %files
 %defattr(-,root,root,-)
-/usr/lib64/ruby/gems/2.2.0/cache/execjs-2.5.2.gem
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/DisabledRuntime/available%3f-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/DisabledRuntime/cdesc-DisabledRuntime.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/DisabledRuntime/compile-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/DisabledRuntime/deprecated%3f-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/DisabledRuntime/eval-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/DisabledRuntime/exec-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/DisabledRuntime/name-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/DuktapeRuntime/Context/call-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/DuktapeRuntime/Context/cdesc-Context.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/DuktapeRuntime/Context/eval-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/DuktapeRuntime/Context/exec-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/DuktapeRuntime/Context/new-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/DuktapeRuntime/Context/wrap_error-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/DuktapeRuntime/available%3f-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/DuktapeRuntime/cdesc-DuktapeRuntime.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/DuktapeRuntime/name-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/Encoding/cdesc-Encoding.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/Encoding/encode-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/Error/cdesc-Error.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/ExternalRuntime/Context/call-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/ExternalRuntime/Context/cdesc-Context.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/ExternalRuntime/Context/create_tempfile-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/ExternalRuntime/Context/eval-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/ExternalRuntime/Context/exec-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/ExternalRuntime/Context/extract_result-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/ExternalRuntime/Context/new-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/ExternalRuntime/Context/write_to_tempfile-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/ExternalRuntime/available%3f-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/ExternalRuntime/binary-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/ExternalRuntime/cdesc-ExternalRuntime.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/ExternalRuntime/deprecated%3f-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/ExternalRuntime/encode_source-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/ExternalRuntime/encode_unicode_codepoints-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/ExternalRuntime/exec_runtime-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/ExternalRuntime/exec_runtime_error-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/ExternalRuntime/generate_compile_method-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/ExternalRuntime/json2_source-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/ExternalRuntime/locate_executable-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/ExternalRuntime/name-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/ExternalRuntime/new-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/ExternalRuntime/shell_escape-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/ExternalRuntime/which-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/ProgramError/cdesc-ProgramError.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/RubyRacerRuntime/Context/call-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/RubyRacerRuntime/Context/cdesc-Context.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/RubyRacerRuntime/Context/eval-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/RubyRacerRuntime/Context/exec-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/RubyRacerRuntime/Context/lock-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/RubyRacerRuntime/Context/new-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/RubyRacerRuntime/Context/unbox-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/RubyRacerRuntime/Context/wrap_error-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/RubyRacerRuntime/available%3f-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/RubyRacerRuntime/cdesc-RubyRacerRuntime.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/RubyRacerRuntime/name-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/RubyRhinoRuntime/Context/call-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/RubyRhinoRuntime/Context/cdesc-Context.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/RubyRhinoRuntime/Context/eval-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/RubyRhinoRuntime/Context/exec-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/RubyRhinoRuntime/Context/fix_memory_limit%21-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/RubyRhinoRuntime/Context/new-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/RubyRhinoRuntime/Context/unbox-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/RubyRhinoRuntime/Context/wrap_error-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/RubyRhinoRuntime/available%3f-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/RubyRhinoRuntime/cdesc-RubyRhinoRuntime.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/RubyRhinoRuntime/name-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/Runtime/Context/call-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/Runtime/Context/cdesc-Context.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/Runtime/Context/eval-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/Runtime/Context/exec-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/Runtime/Context/new-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/Runtime/available%3f-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/Runtime/cdesc-Runtime.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/Runtime/compile-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/Runtime/context_class-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/Runtime/deprecated%3f-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/Runtime/eval-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/Runtime/exec-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/Runtime/name-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/RuntimeError/cdesc-RuntimeError.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/RuntimeUnavailable/cdesc-RuntimeUnavailable.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/Runtimes/autodetect-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/Runtimes/best_available-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/Runtimes/cdesc-Runtimes.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/Runtimes/from_environment-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/Runtimes/names-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/Runtimes/runtimes-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/cdesc-ExecJS.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/compile-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/cygwin%3f-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/eval-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/exec-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/root-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/runtime%3d-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/runtime-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/runtimes-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/ExecJS/windows%3f-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/cache.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/lib/execjs/support/page-jsc_runner_js.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/lib/execjs/support/page-jscript_runner_js.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/lib/execjs/support/page-json2_js.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/lib/execjs/support/page-node_runner_js.ri
-/usr/lib64/ruby/gems/2.2.0/doc/execjs-2.5.2/ri/lib/execjs/support/page-spidermonkey_runner_js.ri
-/usr/lib64/ruby/gems/2.2.0/gems/execjs-2.5.2/LICENSE
-/usr/lib64/ruby/gems/2.2.0/gems/execjs-2.5.2/README.md
-/usr/lib64/ruby/gems/2.2.0/gems/execjs-2.5.2/lib/execjs.rb
-/usr/lib64/ruby/gems/2.2.0/gems/execjs-2.5.2/lib/execjs/disabled_runtime.rb
-/usr/lib64/ruby/gems/2.2.0/gems/execjs-2.5.2/lib/execjs/duktape_runtime.rb
-/usr/lib64/ruby/gems/2.2.0/gems/execjs-2.5.2/lib/execjs/encoding.rb
-/usr/lib64/ruby/gems/2.2.0/gems/execjs-2.5.2/lib/execjs/external_runtime.rb
-/usr/lib64/ruby/gems/2.2.0/gems/execjs-2.5.2/lib/execjs/module.rb
-/usr/lib64/ruby/gems/2.2.0/gems/execjs-2.5.2/lib/execjs/ruby_racer_runtime.rb
-/usr/lib64/ruby/gems/2.2.0/gems/execjs-2.5.2/lib/execjs/ruby_rhino_runtime.rb
-/usr/lib64/ruby/gems/2.2.0/gems/execjs-2.5.2/lib/execjs/runtime.rb
-/usr/lib64/ruby/gems/2.2.0/gems/execjs-2.5.2/lib/execjs/runtimes.rb
-/usr/lib64/ruby/gems/2.2.0/gems/execjs-2.5.2/lib/execjs/support/jsc_runner.js
-/usr/lib64/ruby/gems/2.2.0/gems/execjs-2.5.2/lib/execjs/support/jscript_runner.js
-/usr/lib64/ruby/gems/2.2.0/gems/execjs-2.5.2/lib/execjs/support/json2.js
-/usr/lib64/ruby/gems/2.2.0/gems/execjs-2.5.2/lib/execjs/support/node_runner.js
-/usr/lib64/ruby/gems/2.2.0/gems/execjs-2.5.2/lib/execjs/support/spidermonkey_runner.js
-/usr/lib64/ruby/gems/2.2.0/gems/execjs-2.5.2/lib/execjs/version.rb
-/usr/lib64/ruby/gems/2.2.0/specifications/execjs-2.5.2.gemspec
+/usr/lib64/ruby/gems/2.3.0/cache/execjs-2.5.2.gem
+/usr/lib64/ruby/gems/2.3.0/gems/execjs-2.5.2/LICENSE
+/usr/lib64/ruby/gems/2.3.0/gems/execjs-2.5.2/README.md
+/usr/lib64/ruby/gems/2.3.0/gems/execjs-2.5.2/lib/execjs.rb
+/usr/lib64/ruby/gems/2.3.0/gems/execjs-2.5.2/lib/execjs/disabled_runtime.rb
+/usr/lib64/ruby/gems/2.3.0/gems/execjs-2.5.2/lib/execjs/duktape_runtime.rb
+/usr/lib64/ruby/gems/2.3.0/gems/execjs-2.5.2/lib/execjs/encoding.rb
+/usr/lib64/ruby/gems/2.3.0/gems/execjs-2.5.2/lib/execjs/external_runtime.rb
+/usr/lib64/ruby/gems/2.3.0/gems/execjs-2.5.2/lib/execjs/module.rb
+/usr/lib64/ruby/gems/2.3.0/gems/execjs-2.5.2/lib/execjs/ruby_racer_runtime.rb
+/usr/lib64/ruby/gems/2.3.0/gems/execjs-2.5.2/lib/execjs/ruby_rhino_runtime.rb
+/usr/lib64/ruby/gems/2.3.0/gems/execjs-2.5.2/lib/execjs/runtime.rb
+/usr/lib64/ruby/gems/2.3.0/gems/execjs-2.5.2/lib/execjs/runtimes.rb
+/usr/lib64/ruby/gems/2.3.0/gems/execjs-2.5.2/lib/execjs/support/jsc_runner.js
+/usr/lib64/ruby/gems/2.3.0/gems/execjs-2.5.2/lib/execjs/support/jscript_runner.js
+/usr/lib64/ruby/gems/2.3.0/gems/execjs-2.5.2/lib/execjs/support/json2.js
+/usr/lib64/ruby/gems/2.3.0/gems/execjs-2.5.2/lib/execjs/support/node_runner.js
+/usr/lib64/ruby/gems/2.3.0/gems/execjs-2.5.2/lib/execjs/support/spidermonkey_runner.js
+/usr/lib64/ruby/gems/2.3.0/gems/execjs-2.5.2/lib/execjs/version.rb
+/usr/lib64/ruby/gems/2.3.0/specifications/execjs-2.5.2.gemspec
